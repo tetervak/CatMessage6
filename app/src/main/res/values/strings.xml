@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Cat Message 6</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- about dialog -->
+    <string name="about">About</string>
+    <string name="author">Alex Tetervak, Sheridan College, 2019</string>
+
+    <string name="select_message">Select a message</string>
+    <string name="message_label">Received message</string>
+    <string name="undefined">Undefined</string>
+
+    <!-- radio button labels -->
+    <string name="cat_purr">Purr</string>
+    <string name="cat_mew">Mew</string>
+    <string name="cat_hiss">Hiss</string>
+
+    <!-- button labels -->
+    <string name="send">Send</string>
+    <string name="back">Back</string>
+
+    <!-- the floating label -->
+    <string name="sheridan">Sheridan, 2019</string>
+
+    <!-- the fragment labels -->
+    <string name="view_pager_label">View Pager</string>
+    <string name="input_fragment">Input Fragment</string>
+    <string name="output_fragment_label">Output Fragment</string>
+    <string name="view">View</string>
+    <string name="input">Input</string>
+    <string name="output">Output</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_activity_label">Main Activity</string>
+</resources>
