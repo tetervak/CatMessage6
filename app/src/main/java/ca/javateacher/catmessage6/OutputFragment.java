@@ -1,7 +1,6 @@
 package ca.javateacher.catmessage6;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -68,11 +67,6 @@ public class OutputFragment extends Fragment {
     });
 
     return view;
-  }
-
-  public void updateMessage(String text) {
-    mTextMessage = text;
-    mMessageView.setText(text);
   }
 
   @Override
