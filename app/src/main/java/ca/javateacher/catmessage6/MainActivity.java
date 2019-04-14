@@ -14,7 +14,7 @@ import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
 public class MainActivity extends AppCompatActivity implements
     InputFragment.InputListener, OutputFragment.OutputListener {
 
-  public static final String INPUT_STATE = "input_state";
+  // public static final String INPUT_STATE = "input_state";
   public static final String ABOUT_FRAGMENT = "about_fragment";
 
   @Override
@@ -56,13 +56,15 @@ public class MainActivity extends AppCompatActivity implements
       FragmentManager fragmentManager = getSupportFragmentManager();
       fragmentManager.beginTransaction()
           .replace(R.id.fragment_container,outputFragment)
-          .addToBackStack(INPUT_STATE)
+          //.addToBackStack(INPUT_STATE)
+          .addToBackStack(null)
           .commit();
   }
 
   @Override
   public void showInput() {
     getSupportFragmentManager()
-        .popBackStack(INPUT_STATE, POP_BACK_STACK_INCLUSIVE);
+            //.popBackStack(INPUT_STATE, POP_BACK_STACK_INCLUSIVE);
+    .popBackStack();
   }
 }
