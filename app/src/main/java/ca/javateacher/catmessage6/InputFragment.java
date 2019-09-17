@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,16 +13,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioGroup;
 
+import androidx.lifecycle.ViewModelProviders;
+
+@SuppressWarnings("ConstantConditions")
 public class InputFragment extends Fragment {
 
   public interface InputListener {
-    void updateMessage(String text);
+    void showOutput();
   }
 
   private RadioGroup mMessageGroup;
-
   private InputListener mInputListener;
-
+  private MessageViewModel mViewModel;
 
   public InputFragment() {
     // Required empty public constructor
@@ -41,12 +44,7 @@ public class InputFragment extends Fragment {
     mMessageGroup = view.findViewById(R.id.message_group);
 
     Button sendButton = view.findViewById(R.id.send_button);
-    sendButton.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        showOutput();
-      }
-    });
+    sendButton.setOnClickListener(v -> showOutput());
 
     return view;
   }
@@ -68,19 +66,20 @@ public class InputFragment extends Fragment {
         default:
           message = getString(R.string.undefined);
       }
-      mInputListener.updateMessage(message);
+      mViewModel.getMessageData().setValue(message);
+      mInputListener.showOutput();
     }
   }
 
 
   @Override
-  public void onAttach(Context context) {
+  public void onAttach(@NonNull Context context) {
     super.onAttach(context);
-    try {
+    if(context instanceof InputListener){
       mInputListener = (InputListener) context;
-    } catch (ClassCastException e) {
-      throw new ClassCastException(context.toString()
-          + " must implement InputListener");
+    }else{
+      throw new RuntimeException(context.toString()
+              + " must implement InputFragment.InputListener");
     }
   }
 
@@ -88,5 +87,12 @@ public class InputFragment extends Fragment {
   public void onDetach() {
     super.onDetach();
     mInputListener = null;
+  }
+
+  @Override
+  public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    super.onActivityCreated(savedInstanceState);
+    mViewModel = ViewModelProviders.of(getActivity()).get(MessageViewModel.class);
+    // TODO: Use the ViewModel
   }
 }

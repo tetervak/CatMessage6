@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements
     InputFragment.InputListener, OutputFragment.OutputListener {
 
   // public static final String INPUT_STATE = "input_state";
-  public static final String ABOUT_FRAGMENT = "about_fragment";
+  private static final String ABOUT_FRAGMENT = "about_fragment";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity implements
   }
 
   @Override
-  public void updateMessage(String message) {
-      OutputFragment outputFragment = OutputFragment.newInstance(message);
+  public void showOutput() {
+      OutputFragment outputFragment = OutputFragment.newInstance();
       FragmentManager fragmentManager = getSupportFragmentManager();
       fragmentManager.beginTransaction()
           .replace(R.id.fragment_container,outputFragment)
