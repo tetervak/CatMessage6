@@ -19,11 +19,6 @@ import android.widget.TextView;
 @SuppressWarnings("ConstantConditions")
 public class OutputFragment extends Fragment {
 
-//  interface OutputListener{
-//    void showInput();
-//  }
-//  private OutputListener mOutputListener;
-
   private TextView mMessageView;
 
   public OutputFragment() {
@@ -56,23 +51,6 @@ public class OutputFragment extends Fragment {
   private void showInput(View v) {
     Navigation.findNavController(v).popBackStack(R.id.inputFragment,false);
   }
-
-//  @Override
-//  public void onAttach(@NonNull Context context) {
-//    super.onAttach(context);
-//    try {
-//      mOutputListener = (OutputListener) context;
-//    } catch (ClassCastException e) {
-//      throw new ClassCastException(context.toString()
-//          + " must implement OutputListener");
-//    }
-//  }
-//
-//  @Override
-//  public void onDetach() {
-//    super.onDetach();
-//    mOutputListener = null;
-//  }
 
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {

@@ -19,12 +19,8 @@ import androidx.navigation.Navigation;
 @SuppressWarnings("ConstantConditions")
 public class InputFragment extends Fragment {
 
-//  public interface InputListener {
-//    void showOutput();
-//  }
-
   private RadioGroup mMessageGroup;
-//  private InputListener mInputListener;
+
   private MessageViewModel mViewModel;
 
   public InputFragment() {
@@ -51,8 +47,6 @@ public class InputFragment extends Fragment {
   }
 
   private void showOutput(View v) {
-//    if(mInputListener != null){
-      // get the selected message
       String message;
       switch (mMessageGroup.getCheckedRadioButtonId()) {
         case R.id.purr_button:
@@ -68,28 +62,8 @@ public class InputFragment extends Fragment {
           message = getString(R.string.undefined);
       }
       mViewModel.getMessageData().setValue(message);
-      //mInputListener.showOutput();
       Navigation.findNavController(v).navigate(R.id.action_input_to_output);
-//    }
   }
-
-
-//  @Override
-//  public void onAttach(@NonNull Context context) {
-//    super.onAttach(context);
-//    if(context instanceof InputListener){
-//      mInputListener = (InputListener) context;
-//    }else{
-//      throw new RuntimeException(context.toString()
-//              + " must implement InputFragment.InputListener");
-//    }
-//  }
-//
-//  @Override
-//  public void onDetach() {
-//    super.onDetach();
-//    mInputListener = null;
-//  }
 
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
