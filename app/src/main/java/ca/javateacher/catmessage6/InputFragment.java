@@ -14,16 +14,17 @@ import android.widget.Button;
 import android.widget.RadioGroup;
 
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 
 @SuppressWarnings("ConstantConditions")
 public class InputFragment extends Fragment {
 
-  public interface InputListener {
-    void showOutput();
-  }
+//  public interface InputListener {
+//    void showOutput();
+//  }
 
   private RadioGroup mMessageGroup;
-  private InputListener mInputListener;
+//  private InputListener mInputListener;
   private MessageViewModel mViewModel;
 
   public InputFragment() {
@@ -44,13 +45,13 @@ public class InputFragment extends Fragment {
     mMessageGroup = view.findViewById(R.id.message_group);
 
     Button sendButton = view.findViewById(R.id.send_button);
-    sendButton.setOnClickListener(v -> showOutput());
+    sendButton.setOnClickListener(v -> showOutput(v));
 
     return view;
   }
 
-  private void showOutput() {
-    if(mInputListener != null){
+  private void showOutput(View v) {
+//    if(mInputListener != null){
       // get the selected message
       String message;
       switch (mMessageGroup.getCheckedRadioButtonId()) {
@@ -67,27 +68,28 @@ public class InputFragment extends Fragment {
           message = getString(R.string.undefined);
       }
       mViewModel.getMessageData().setValue(message);
-      mInputListener.showOutput();
-    }
+      //mInputListener.showOutput();
+      Navigation.findNavController(v).navigate(R.id.action_input_to_output);
+//    }
   }
 
 
-  @Override
-  public void onAttach(@NonNull Context context) {
-    super.onAttach(context);
-    if(context instanceof InputListener){
-      mInputListener = (InputListener) context;
-    }else{
-      throw new RuntimeException(context.toString()
-              + " must implement InputFragment.InputListener");
-    }
-  }
-
-  @Override
-  public void onDetach() {
-    super.onDetach();
-    mInputListener = null;
-  }
+//  @Override
+//  public void onAttach(@NonNull Context context) {
+//    super.onAttach(context);
+//    if(context instanceof InputListener){
+//      mInputListener = (InputListener) context;
+//    }else{
+//      throw new RuntimeException(context.toString()
+//              + " must implement InputFragment.InputListener");
+//    }
+//  }
+//
+//  @Override
+//  public void onDetach() {
+//    super.onDetach();
+//    mInputListener = null;
+//  }
 
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
