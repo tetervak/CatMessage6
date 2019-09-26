@@ -10,7 +10,7 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity{
 
-  private static final String ABOUT_FRAGMENT = "about_fragment";
+  private static final String ABOUT_FRAGMENT_TAG = "aboutFragment";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +31,15 @@ public class MainActivity extends AppCompatActivity{
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     if (item.getItemId() == R.id.about) {
-      AboutFragment aboutFragment = AboutFragment.newInstance();
-      aboutFragment.show(getSupportFragmentManager(), ABOUT_FRAGMENT);
+      showAbout();
       return true;
     }
     return super.onOptionsItemSelected(item);
+  }
+
+  private void showAbout() {
+    AboutFragment aboutFragment = AboutFragment.newInstance();
+    aboutFragment.show(getSupportFragmentManager(), ABOUT_FRAGMENT_TAG);
   }
 
 }
