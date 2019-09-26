@@ -1,6 +1,5 @@
 package ca.javateacher.catmessage6;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,11 +25,6 @@ public class InputFragment extends Fragment {
   public InputFragment() {
     // Required empty public constructor
   }
-
-  public static InputFragment newInstance(){
-    return new InputFragment();
-  }
-
 
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -69,6 +63,5 @@ public class InputFragment extends Fragment {
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
     mViewModel = ViewModelProviders.of(getActivity()).get(MessageViewModel.class);
-    // TODO: Use the ViewModel
   }
 }

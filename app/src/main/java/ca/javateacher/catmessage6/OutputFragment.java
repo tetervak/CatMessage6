@@ -1,12 +1,10 @@
 package ca.javateacher.catmessage6;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 
@@ -23,10 +21,6 @@ public class OutputFragment extends Fragment {
 
   public OutputFragment() {
     // Required empty public constructor
-  }
-
-  public static OutputFragment newInstance(){
-    return new OutputFragment();
   }
 
   @Override
