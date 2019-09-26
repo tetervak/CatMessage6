@@ -41,7 +41,7 @@ public class InputFragment extends Fragment {
     mMessageGroup = view.findViewById(R.id.message_group);
 
     Button sendButton = view.findViewById(R.id.send_button);
-    sendButton.setOnClickListener(v -> showOutput(v));
+    sendButton.setOnClickListener(this::showOutput);
 
     return view;
   }

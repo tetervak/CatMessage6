@@ -43,7 +43,7 @@ public class OutputFragment extends Fragment {
     mMessageView = view.findViewById(R.id.message_text);
 
     Button closeButton = view.findViewById(R.id.back_button);
-    closeButton.setOnClickListener(v -> showInput(v));
+    closeButton.setOnClickListener(this::showInput);
 
     return view;
   }
