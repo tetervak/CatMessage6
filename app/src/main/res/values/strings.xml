@@ -21,10 +21,8 @@
     <!-- the floating label -->
     <string name="sheridan">Sheridan, 2019</string>
 
-    <!-- the fragment labels -->
+    <!-- the activity & fragment labels -->
     <string name="input_fragment">Input Fragment</string>
     <string name="output_fragment_label">Output Fragment</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="main_activity_label">Main Activity</string>
 </resources>
