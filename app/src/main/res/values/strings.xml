@@ -22,7 +22,7 @@
     <string name="sheridan">Sheridan, 2019</string>
 
     <!-- the activity & fragment labels -->
-    <string name="input_fragment">Input Fragment</string>
+    <string name="input_fragment_label">Input Fragment</string>
     <string name="output_fragment_label">Output Fragment</string>
     <string name="main_activity_label">Main Activity</string>
 </resources>

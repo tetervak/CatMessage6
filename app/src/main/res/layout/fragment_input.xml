@@ -14,7 +14,7 @@
 
     <TextView
         android:id="@+id/input_fragment_label"
-        android:text="@string/input_fragment"
+        android:text="@string/input_fragment_label"
         style="@style/fragment_label" />
 
     <Space
