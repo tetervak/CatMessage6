@@ -4,6 +4,10 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,9 +20,16 @@ public class MainActivity extends AppCompatActivity{
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    Toolbar toolbar = findViewById(R.id.toolbar);
-    setSupportActionBar(toolbar);
 
+    // make the toolbar "up" button work with the navigation
+    Toolbar toolbar = findViewById(R.id.toolbar);
+    NavController navController
+            = Navigation.findNavController(this, R.id.nav_host_fragment);
+    AppBarConfiguration appBarConfiguration
+            = new AppBarConfiguration.Builder(navController.getGraph()).build();
+    NavigationUI.setupWithNavController(toolbar, navController,appBarConfiguration);
+
+    setSupportActionBar(toolbar);
   }
 
   @Override
@@ -30,11 +41,19 @@ public class MainActivity extends AppCompatActivity{
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    if (item.getItemId() == R.id.about) {
-      showAbout();
-      return true;
+    switch(item.getItemId()){
+      case R.id.about:{
+        showAbout();
+        return true;
+      }
+      case android.R.id.home:{
+        Navigation.findNavController(this, R.id.nav_host_fragment)
+                .navigate(R.id.action_global_input);
+      }
+      default: {
+        return super.onOptionsItemSelected(item);
+      }
     }
-    return super.onOptionsItemSelected(item);
   }
 
   private void showAbout() {
