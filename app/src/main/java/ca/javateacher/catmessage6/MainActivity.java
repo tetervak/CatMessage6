@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity{
         return true;
       }
       case android.R.id.home:{
-        Navigation.findNavController(this, R.id.nav_host_fragment)
-                .navigate(R.id.action_global_input);
+        showInput();
+        return true;
       }
       default: {
         return super.onOptionsItemSelected(item);
@@ -56,9 +56,14 @@ public class MainActivity extends AppCompatActivity{
     }
   }
 
-  private void showAbout() {
-    AboutFragment aboutFragment = AboutFragment.newInstance();
-    aboutFragment.show(getSupportFragmentManager(), ABOUT_FRAGMENT_TAG);
-  }
+    private void showInput() {
+        Navigation.findNavController(this, R.id.nav_host_fragment)
+                .navigate(R.id.action_global_input);
+    }
+
+    private void showAbout() {
+        AboutFragment aboutFragment = AboutFragment.newInstance();
+        aboutFragment.show(getSupportFragmentManager(), ABOUT_FRAGMENT_TAG);
+    }
 
 }
